@@ -1,6 +1,7 @@
 ﻿using AdventOfCode2019.Day1;
 using AdventOfCode2019.Day2;
 using AdventOfCode2019.Day3;
+using AdventOfCode2019.Day4;
 using AdventOfCode2019.Day6;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace AdventOfCode2019
             Console.WriteLine("----------DAY3----------");
             var day3Inputs = GetDay3Inputs("../../../Day3/Day3Input.txt");
             CircuitMapper.MapCircuits(day3Inputs);
+            Console.WriteLine("----------DAY4----------");
+            PasswordDecryptor.TotalDecryptionOptions(353096, 843212);
             Console.WriteLine("----------DAY6----------");
             var day6Inputs = GetDay6Inputs("../../../Day6/Day6Input.txt");
             var mapEngine = new UniversalOrbitalMapEngine(day6Inputs);
