@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2019.Day1;
+using AdventOfCode2019.Day2;
 using AdventOfCode2019.Day6;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,12 @@ namespace AdventOfCode2019
             Console.WriteLine("----------DAY1----------");
             var day1Inputs = GetDay1Inputs("../../../Day1/Day1Input.txt");
             FuelCalculatorEngine.CalculateTotalFuelRequirement(day1Inputs);
+            Console.WriteLine("----------DAY2----------");
+            var day2Inputs = GetDay2Inputs("../../../Day2/Day2Input.txt");
+            int[] clone1 = (int[])day2Inputs.Clone();
+            int[] clone2 = (int[])day2Inputs.Clone();
+            Console.WriteLine($"Output: {IntCodeReaderEngine.ReadIntCode(clone1, 12, 2)}");
+            IntCodeReaderEngine.FindIntCodeSpecificOutput(clone2, 19690720);
             Console.WriteLine("----------DAY6----------");
             var day6Inputs = GetDay6Inputs("../../../Day6/Day6Input.txt");
             var mapEngine = new UniversalOrbitalMapEngine(day6Inputs);
@@ -30,6 +37,22 @@ namespace AdventOfCode2019
                 var line = reader.ReadLine();
                 inputs.Add(int.Parse(line));
             }
+            return inputs;
+        }
+
+        public static int[] GetDay2Inputs(string filePath)
+        {            
+            Stream stream = new FileStream(filePath, FileMode.Open);
+            StreamReader reader = new StreamReader(stream);
+
+            var input = reader.ReadLine();
+            var myString = input.Split(',');
+            var inputs = new int[myString.Length];
+            for (int i = 0; i < myString.Length; i++)
+            {
+                inputs[i] = int.Parse(myString[i]);
+            }
+            
             return inputs;
         }
 
